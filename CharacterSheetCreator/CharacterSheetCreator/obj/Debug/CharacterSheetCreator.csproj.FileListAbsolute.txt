@@ -4,3 +4,4 @@ C:\Users\Adam Ryan\OneDrive\Documents\College_Notes\Year_2\C16302271_-_OOP_Assig
 C:\Users\Adam Ryan\OneDrive\Documents\College_Notes\Year_2\C16302271_-_OOP_Assignment_2\CharacterSheetCreator\CharacterSheetCreator\obj\Debug\CharacterSheetCreator.csproj.CoreCompileInputs.cache
 C:\Users\Adam Ryan\OneDrive\Documents\College_Notes\Year_2\C16302271_-_OOP_Assignment_2\CharacterSheetCreator\CharacterSheetCreator\obj\Debug\CharacterSheetCreator.exe
 C:\Users\Adam Ryan\OneDrive\Documents\College_Notes\Year_2\C16302271_-_OOP_Assignment_2\CharacterSheetCreator\CharacterSheetCreator\obj\Debug\CharacterSheetCreator.pdb
+C:\Users\Adam Ryan\OneDrive\Documents\College_Notes\Year_2\C16302271_-_OOP_Assignment_2\CharacterSheetCreator\CharacterSheetCreator\obj\Debug\CharacterSheetCreator.csprojResolveAssemblyReference.cache

@@ -1,0 +1,48 @@
+USE AN ARRAY AND MODULUS -1 FOR CALCULATING THE RESULTS OF DICE ROLLS! FOR EXAMPLE:
+	int[] dice = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,............,100];
+	Random rand = new Random();
+	int diceRoll = rand.Next(1, 101);
+	int result;
+	
+	if(it's a d4 that's rolled)
+	{
+		result = (diceRoll % 4) - 1;
+	}
+	else if(it's a d6 that's rolled)
+	{
+		result = (diceRoll % 6) - 1;
+	}
+	............for every type of dice
+	
+	return result;
+
+
+
+
+
+USE ABSTRACT CLASSES OR INTERFACES FOR THE CHARACTER CLASSES! FOR EXAMPLE:
+
+	abstract class DnDClass
+	{
+		int level;
+		
+		
+	}
+
+	class Warlock : DndClass
+	{
+		
+	}
+KEEP IT SIMPLE! DON'T DO SUBCLASSES!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+CREATE A CharacterStorage FOLDER!!!!!! SEARCH IT AND RETURN A MESSAGE THAT THERE ISN'T ANYTHING TO FIND IF NOTHING IS THERE!!!!!!!!
+ELSE RETURN THE NAMES OF ALL THE CHARACTER SHEETS IN THE FOLDER!!!!!
+IF MAKING IT SO THEY CAN BE EDITED, STORE THEM IN AN ARRAY AND DISPLAY TO THE USER FOR WHICH ONE THEY'D LIKE TO CHANGE!!!!
