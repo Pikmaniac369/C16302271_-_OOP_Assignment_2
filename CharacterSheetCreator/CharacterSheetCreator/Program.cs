@@ -7,12 +7,58 @@ using System.Threading.Tasks;
 
 namespace CharacterSheetCreator
 {
+    public enum Gender
+    {
+        Male,
+        Female
+    }
+
+    public enum SizeCategory
+    {
+        Tiny,
+        Small,
+        Medium,
+        Large,
+        Huge,
+        Gargantuan
+    }
+
+    public enum Race
+    {
+        Dwarf,
+        Elf,
+        Halfling,
+        Human,
+        Dragonborn,
+        Gnome,
+        Half_Elf,
+        Half_Orc,
+        Tiefling
+    }
+
     struct DnDCharacter
     {
         private string name;
         private int age;
+        Gender sex;
+        SizeCategory size;
+        Race race;
         private DndClass characterClass;
         
+        public void createCharacter(string namae, int anni, bool morf)
+        {
+            name = namae;
+            age = anni;
+
+            if(morf == true)
+            {
+                sex = Gender.Male;
+            }
+            else if(morf == false)
+            {
+                sex = Gender.Female;
+            }
+        }
     }
 
     class Program
@@ -42,7 +88,7 @@ namespace CharacterSheetCreator
 
     abstract class DnDRace
     {
-
+       
     }
 
 
@@ -113,12 +159,12 @@ namespace CharacterSheetCreator
 
 
 
-
+    /*
     //DnD RACES:
     //-------------------------------------------------
     class Dwarf : DnDRace
     {
-
+        
     }
 
     class Elf : DnDRace
@@ -160,4 +206,5 @@ namespace CharacterSheetCreator
     {
 
     }
+    */
 }
