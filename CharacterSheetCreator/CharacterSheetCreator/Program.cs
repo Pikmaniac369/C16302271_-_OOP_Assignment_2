@@ -45,11 +45,14 @@ namespace CharacterSheetCreator
         Race race;
         private DndClass characterClass;
         
-        public void createCharacter(string namae, int anni, bool morf)
+        //DON'T LET THIS BE CALLED IF ANY NUMBER OTHER THAN THE RACE ONES ARE CHOSEN!!!!!!!!!!!!!!!
+        public void createCharacter(string namae, int anni, bool morf, int selectedRace)
         {
+            //Set the character's name and age:
             name = namae;
             age = anni;
 
+            //What is the character's gender?
             if(morf == true)
             {
                 sex = Gender.Male;
@@ -58,6 +61,76 @@ namespace CharacterSheetCreator
             {
                 sex = Gender.Female;
             }
+
+            //What race is the character?
+            switch(selectedRace)
+            {
+                case 1:
+                    race = Race.Dwarf;
+                    break;
+
+                case 2:
+                    race = Race.Elf;
+                    break;
+
+                case 3:
+                    race = Race.Halfling;
+                    break;
+
+                case 4:
+                    race = Race.Human;
+                    break;
+
+                case 5:
+                    race = Race.Dragonborn;
+                    break;
+
+                case 6:
+                    race = Race.Gnome;
+                    break;
+
+                case 7:
+                    race = Race.Half_Elf;
+                    break;
+
+                case 8:
+                    race = Race.Half_Orc;
+                    break;
+
+                case 9:
+                    race = Race.Tiefling;
+                    break;
+            }
+
+            /*switch(race)
+            {
+                case Race.Dwarf:
+                    break;
+
+                case Race.Elf:
+                    break;
+
+                case Race.Halfling:
+                    break;
+
+                case Race.Human:
+                    break;
+
+                case Race.Dragonborn:
+                    break;
+
+                case Race.Gnome:
+                    break;
+
+                case Race.Half_Elf:
+                    break;
+
+                case Race.Half_Orc:
+                    break;
+
+                case Race.Tiefling:
+                    break;
+            }*/
         }
     }
 

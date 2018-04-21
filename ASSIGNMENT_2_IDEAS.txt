@@ -50,3 +50,22 @@ IF MAKING IT SO THEY CAN BE EDITED, STORE THEM IN AN ARRAY AND DISPLAY TO THE US
 
 
 MAKE OVERRIDIBLE METHODS FOR HIT POINT CALCULATION ETC... IN THE DnDClass CLASS AND OVERRIDE THEM IN THE Warlock, Wizard...etc. CLASSES!!!!!!!!!!
+
+SELECT THE DESIRED CLASS IN THE MAIN() METHOD AND CREATE THE CHARACTER WITHIN THE CORRESPONDING CLASS CLASS!!!!!!!!!!!!!!!!!!!
+
+MAKE THE CHARACTER A CLASS! MAKE THE 
+
+
+
+
+
+
+
+
+
+CREATE AN INTERFACE FOR ROLLING DICE.
+
+character is an abstract class, warlock etc are normal and implement character and implent the HitPointRoller interface
+
+create a new warlock whose race is human, is 19 years old, male and...
+i.e. warlock is class, race is an enumerated type
