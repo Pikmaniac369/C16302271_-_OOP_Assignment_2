@@ -56,10 +56,10 @@ SELECT THE DESIRED CLASS IN THE MAIN() METHOD AND CREATE THE CHARACTER WITHIN TH
 MAKE THE CHARACTER A CLASS! MAKE THE 
 
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-
+GO WITH OLD FAITHFUL: LOTS AND LOTS OF MENUS!!!!!!!!!!!!!!!
 
 
 

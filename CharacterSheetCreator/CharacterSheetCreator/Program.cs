@@ -36,15 +36,39 @@ namespace CharacterSheetCreator
         Tiefling
     }
 
-    struct DnDCharacter
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Display the menu:
+            displayMenu();
+
+            //Stops the command window from closing immediately
+            Console.ReadKey();
+        }
+
+        private static void displayMenu()
+        {
+            Console.WriteLine("Welcome to my Dungeons & Dragons Character Sheet Creation tool!");
+        }
+    }
+
+
+    //Abstract classes for DnDClasses and DnDRaces:
+    //-----------------------------------------------
+    abstract class DndClass
+    {
+
+    }
+
+    abstract class DnDCharacter
     {
         private string name;
         private int age;
         Gender sex;
         SizeCategory size;
         Race race;
-        private DndClass characterClass;
-        
+
         //DON'T LET THIS BE CALLED IF ANY NUMBER OTHER THAN THE RACE ONES ARE CHOSEN!!!!!!!!!!!!!!!
         public void createCharacter(string namae, int anni, bool morf, int selectedRace)
         {
@@ -53,17 +77,17 @@ namespace CharacterSheetCreator
             age = anni;
 
             //What is the character's gender?
-            if(morf == true)
+            if (morf == true)
             {
                 sex = Gender.Male;
             }
-            else if(morf == false)
+            else if (morf == false)
             {
                 sex = Gender.Female;
             }
 
             //What race is the character?
-            switch(selectedRace)
+            switch (selectedRace)
             {
                 case 1:
                     race = Race.Dwarf;
@@ -134,150 +158,70 @@ namespace CharacterSheetCreator
         }
     }
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            //Display the menu:
-            displayMenu();
-
-            //Stops the command window from closing immediately
-            Console.ReadKey();
-        }
-
-        private static void displayMenu()
-        {
-            Console.WriteLine("Welcome to my Dungeons & Dragons Character Sheet Creation tool!");
-        }
-    }
-
-
-    //Abstract classes for DnDClasses and DnDRaces:
-    //-----------------------------------------------
-    abstract class DndClass
-    {
-
-    }
-
-    abstract class DnDRace
-    {
-       
-    }
-
-
 
 
     //DnD CLASSES:
     //----------------------------------------------
-    class Barbarian : DndClass
+    class Barbarian : DnDCharacter
     {
 
     }
 
-    class Bard : DndClass
+    class Bard : DnDCharacter
     {
 
     }
 
-    class Cleric : DndClass
+    class Cleric : DnDCharacter
     {
 
     }
 
-    class Druid : DndClass
+    class Druid : DnDCharacter
     {
 
     }
 
-    class Fighter : DndClass
+    class Fighter : DnDCharacter
     {
 
     }
 
-    class Monk : DndClass
+    class Monk : DnDCharacter
     {
 
     }
 
-    class Paladin : DndClass
-    {
-
-    }
-
-    class Ranger : DndClass
-    {
-
-    }
-
-    class Rogue : DndClass
-    {
-
-    }
-
-    class Sorcerer : DndClass
-    {
-
-    }
-
-    class Warlock : DndClass
-    {
-
-    }
-
-    class Wizard : DndClass
-    {
-
-    }
-
-
-
-
-    /*
-    //DnD RACES:
-    //-------------------------------------------------
-    class Dwarf : DnDRace
+    class Paladin : DnDCharacter
     {
         
     }
 
-    class Elf : DnDRace
+    class Ranger : DnDCharacter
     {
 
     }
 
-    class Halfling : DnDRace
+    class Rogue : DnDCharacter
     {
 
     }
 
-    class Human : DnDRace
+    class Sorcerer : DnDCharacter
     {
 
     }
 
-    class Dragonborn : DnDRace
+    class Warlock : DnDCharacter
     {
 
     }
 
-    class Gnome : DnDRace
+    class Wizard : DnDCharacter
     {
 
     }
 
-    class Half_Elf : DnDRace
-    {
 
-    }
-
-    class Half_Orc : DnDRace
-    {
-
-    }
-
-    class Tiefling : DnDRace
-    {
-
-    }
-    */
+    
 }
