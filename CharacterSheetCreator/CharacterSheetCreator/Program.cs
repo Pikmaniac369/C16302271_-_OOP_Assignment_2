@@ -305,7 +305,7 @@ namespace CharacterSheetCreator
                     speed = 25;//Base walking speed
                     languagesKnown = "Common and Halfling";
 
-                    displayMenu(race);
+                    displayMenu(race);//Determine sub-race
                     if(subRace == SubRace.Lightfoot_Halfling)
                     {
                         cha = cha + 1;
@@ -318,27 +318,77 @@ namespace CharacterSheetCreator
 
                 case 4:
                     race = Race.Human;
+                    str = str + 1;//Strength score increase
+                    dex = dex + 1;//Dexterity score increase
+                    con = con + 1;//Constitution score increase
+                    inte = inte + 1;//Intelligence score increase
+                    wis = wis + 1;//Wisdom score increase
+                    cha = cha + 1;//Charisma score increase
+                    size = SizeCategory.Medium;
+                    speed = 30;//Base walking speed
+                    languagesKnown = "Common and one other of your choice";
                     break;
 
                 case 5:
                     race = Race.Dragonborn;
+                    str = str + 2;//Strength score increase
+                    cha = cha + 1;//Charisma score increase
+                    size = SizeCategory.Medium;
+                    speed = 30;//Base walking speed
+                    languagesKnown = "Common and Draconic";
                     break;
 
                 case 6:
                     race = Race.Gnome;
-                    displayMenu(race);
+                    inte = inte + 2;//Intelligence score increase
+                    size = SizeCategory.Small;
+                    speed = 25;//Base walking speed
+                    languagesKnown = "Common and Gnomish";
+
+                    displayMenu(race);//Determine sub-race
+                    if(subRace == SubRace.Forest_Gnome)
+                    {
+                        dex = dex + 1;//Dexterity score increase
+                    }
+                    else if(subRace == SubRace.Rock_Gnome)
+                    {
+                        con = con + 1;//Constitution score increase
+                    }
                     break;
 
                 case 7:
                     race = Race.Half_Elf;
+                    cha = cha + 2;//Charisma score increase
+                    dex = dex + 1;//Dexterity score increase
+                    inte = inte + 1;//Intelligence score increase
+                    size = SizeCategory.Medium;
+                    speed = 30;//Base walking speed
+                    languagesKnown = "Common, Elvish and one language of your choice";
+
+                    //Skill Proficiencies:
+                    arcana = true;
+                    investigation = true;
                     break;
 
                 case 8:
                     race = Race.Half_Orc;
+                    str = str + 2;//Strength score increase
+                    con = con + 1;//Constitution score increase
+                    size = SizeCategory.Medium;
+                    speed = 30;//Base walking speed
+                    languagesKnown = "Common and Orc";
+
+                    //Skill Proficiencies:
+                    intimidation = true;
                     break;
 
                 case 9:
                     race = Race.Tiefling;
+                    inte = inte + 1;//Intelligence score increase
+                    cha = cha + 2;//Charisma score increase
+                    size = SizeCategory.Medium;
+                    speed = 30;//Base walking speed
+                    languagesKnown = "Common and Infernal";
                     break;
             }
 

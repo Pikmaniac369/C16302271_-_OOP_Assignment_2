@@ -69,3 +69,15 @@ character is an abstract class, warlock etc are normal and implement character a
 
 create a new warlock whose race is human, is 19 years old, male and...
 i.e. warlock is class, race is an enumerated type
+
+
+								|
+								|
+								|
+								|		VERY IMPORTANT!!!!!!!!
+							     \  |  /
+							      \ | /
+							       \|/
+		
+
+ADD SOME WAY OF GETTING FOUR RANDOM VALUES BETWEEN 1 AND 6 FOR CALCULATING ABILITY SCORES AND SET THE VALUES BEFORE DETERMINING RACE!
