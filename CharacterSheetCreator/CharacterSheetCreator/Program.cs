@@ -300,7 +300,20 @@ namespace CharacterSheetCreator
 
                 case 3:
                     race = Race.Halfling;
+                    dex = dex + 2;//Ability score increase
+                    size = SizeCategory.Small;
+                    speed = 25;//Base walking speed
+                    languagesKnown = "Common and Halfling";
+
                     displayMenu(race);
+                    if(subRace == SubRace.Lightfoot_Halfling)
+                    {
+                        cha = cha + 1;
+                    }
+                    else if(subRace == SubRace.Stout_Halfling)
+                    {
+                        con = con + 1;
+                    }
                     break;
 
                 case 4:
