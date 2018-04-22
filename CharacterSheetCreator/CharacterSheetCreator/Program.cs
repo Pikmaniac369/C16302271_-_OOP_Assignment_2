@@ -105,21 +105,56 @@ namespace CharacterSheetCreator
         //Character Info/Stats
         private string name;
         private int age;
+        private int level = 1;
 
-        private int speed = 0;
-        private int str = 0;//Strength ability score
-        private int dex = 0;//Dexterity ability score
-        private int con = 0;//Constitution ability score
-        private int inte = 0;//Intelligence ability score
-        private int wis = 0;//Wisdom ability score
-        private int cha = 0;//Charisma ability score
+        public int hpMax = 0;//Maximum hit points
+        public int speed = 0;//Base walking speed
+        public int str = 0;//Strength ability score
+        public int dex = 0;//Dexterity ability score
+        public int con = 0;//Constitution ability score
+        public int inte = 0;//Intelligence ability score
+        public int wis = 0;//Wisdom ability score
+        public int cha = 0;//Charisma ability score
 
         private Gender sex;
         private SizeCategory size;
         private Race race;
         private SubRace subRace;
-        
-        private string languagesKnown = "";
+
+        public string languagesKnown = "";
+
+        //Saving Throws:
+        public bool strSave = false;
+        public bool dexSave = false;
+        public bool conSave = false;
+        public bool inteSave = false;
+        public bool wisSave = false;
+        public bool chaSave = false;
+
+        //Skill Proficiencies:
+        public bool acrobatics = false;
+        public bool animalHandling = false;
+        public bool arcana = false;
+        public bool athletics = false;
+        public bool deception = false;
+        public bool history = false;
+        public bool insight = false;
+        public bool intimidation = false;
+        public bool investigation = false;
+        public bool medicine = false;
+        public bool nature = false;
+        public bool perception = false;
+        public bool performance = false;
+        public bool persuasion = false;
+        public bool religion = false;
+        public bool sleightOfHand = false;
+        public bool stealth = false;
+        public bool survival = false;
+
+        //Armour Proficiencies:
+        public bool lightArmour = false;
+        public bool mediumArmour = false;
+        public bool heavyArmour = false;
 
         public static int numOfCharacters = 0;
 
@@ -147,10 +182,20 @@ namespace CharacterSheetCreator
             {
                 case 1:
                     race = Race.Dwarf;
-                    con = con + 2;
+                    con = con + 2;//Ability score increase
                     size = SizeCategory.Medium;
-                    speed = 25;
-                    displayMenu(race);
+                    speed = 25;//Base walking speed
+                    languagesKnown = "Common and Dwarvish";
+                    displayMenu(race);//Determine sub-race
+                    if(subRace == SubRace.Hill_Dwarf)
+                    {
+                        wis = wis + 1;
+                        hpMax = hpMax + 1;
+                    }
+                    else if(subRace == SubRace.Mountain_Dwarf)
+                    {
+                        str = str + 2;
+                    }
                     break;
 
                 case 2:
@@ -323,6 +368,8 @@ namespace CharacterSheetCreator
 
         }
 
+        public abstract int hpCalc();
+
     }
 
 
@@ -330,62 +377,158 @@ namespace CharacterSheetCreator
     //----------------------------------------------
     class Barbarian : DnDCharacter
     {
+        Barbarian() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Bard : DnDCharacter
     {
+        Bard() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Cleric : DnDCharacter
     {
+        Cleric() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Druid : DnDCharacter
     {
+        Druid() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Fighter : DnDCharacter
     {
+        Fighter() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Monk : DnDCharacter
     {
+        Monk() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Paladin : DnDCharacter
     {
-        
+        Paladin() : base()
+        {
+            hpMax = hpCalc();
+        }
+
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Ranger : DnDCharacter
     {
+        Ranger() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Rogue : DnDCharacter
     {
+        Rogue() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Sorcerer : DnDCharacter
     {
+        Sorcerer() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Warlock : DnDCharacter
     {
+        Warlock() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
     class Wizard : DnDCharacter
     {
+        Wizard() : base()
+        {
+            hpMax = hpCalc();
+        }
 
+        public override int hpCalc()
+        {
+            return 0;
+        }
     }
 
 
