@@ -151,6 +151,57 @@ namespace CharacterSheetCreator
         public bool stealth = false;
         public bool survival = false;
 
+        //Weapon Proficiencies:
+        public bool simple = false;
+        public bool martial = false;
+        
+        public bool simpleMelee = false;
+        public bool simpleRanged = false;
+        public bool martialMelee = false;
+        public bool martialRanged = false;
+        //Simple Melee Weapons
+        public bool club = false;
+        public bool dagger = false;
+        public bool greatclub = false;
+        public bool handaxe = false;
+        public bool javelin = false;
+        public bool lightHammer = false;
+        public bool mace = false;
+        public bool quarterstaff = false;
+        public bool sickle = false;
+        public bool spear = false;
+        //Simple Ranged Weapons
+        public bool lightCrossbow = false;
+        public bool dart = false;
+        public bool shortbow = false;
+        public bool sling = false;
+        //Martial Melee Weapons
+        public bool battleaxe = false;
+        public bool flail = false;
+        public bool glaive = false;
+        public bool greataxe = false;
+        public bool greatsword = false;
+        public bool halberd = false;
+        public bool lance = false;
+        public bool longsword = false;
+        public bool maul = false;
+        public bool morningstar = false;
+        public bool pike = false;
+        public bool rapier = false;
+        public bool scimitar = false;
+        public bool shortsword = false;
+        public bool trident = false;
+        public bool warPick = false;
+        public bool warhammer = false;
+        public bool whip = false;
+        //Martial Ranged Weapons
+        public bool blowgun = false;
+        public bool handCrossbow = false;
+        public bool heavyCrossbow = false;
+        public bool longbow = false;
+        public bool net = false;
+
+
         //Armour Proficiencies:
         public bool lightArmour = false;
         public bool mediumArmour = false;
@@ -186,6 +237,7 @@ namespace CharacterSheetCreator
                     size = SizeCategory.Medium;
                     speed = 25;//Base walking speed
                     languagesKnown = "Common and Dwarvish";
+
                     displayMenu(race);//Determine sub-race
                     if(subRace == SubRace.Hill_Dwarf)
                     {
@@ -195,12 +247,55 @@ namespace CharacterSheetCreator
                     else if(subRace == SubRace.Mountain_Dwarf)
                     {
                         str = str + 2;
+                        lightArmour = true;//Gain proficiency with light armour
+                        mediumArmour = true;//Gain proficiency with medium armour
                     }
                     break;
 
                 case 2:
                     race = Race.Elf;
-                    displayMenu(race);
+                    dex = dex + 2;//Ability score increase
+                    size = SizeCategory.Medium;
+                    speed = 30;//Base walking speed
+                    languagesKnown = "Common and Elvish";
+
+                    perception = true;
+
+                    displayMenu(race);//Determine sub-race
+                    if(subRace == SubRace.High_Elf)
+                    {
+                        inte = inte + 1;//Ability score increase
+
+                        //Weapon Proficiencies
+                        longsword = true;
+                        shortsword = true;
+                        shortbow = true;
+                        longbow = true;
+
+                        //Extra Language(s)
+                        languagesKnown = languagesKnown + " and one more of your choice";
+                    }
+                    else if(subRace == SubRace.Wood_Elf)
+                    {
+                        wis = wis + 1;//Ability score increase
+
+                        //Weapon Proficiencies
+                        longsword = true;
+                        shortsword = true;
+                        shortbow = true;
+                        longbow = true;
+
+                        speed = 35;//Increased base walking speed
+                    }
+                    else if(subRace == SubRace.Dark_Elf)
+                    {
+                        cha = cha + 1;//Ability score increase
+
+                        //Weapon Proficiencies
+                        rapier = true;
+                        shortsword = true;
+                        handCrossbow = true;
+                    }
                     break;
 
                 case 3:
@@ -232,6 +327,81 @@ namespace CharacterSheetCreator
                 case 9:
                     race = Race.Tiefling;
                     break;
+            }
+
+            //If you're proficient with simple weapons
+            if(simple == true)
+            {
+                simpleMelee = true;
+                simpleRanged = true;
+            }
+
+            //If you're proficient with martial weapons
+            if(martial == true)
+            {
+                martialMelee = true;
+                martialRanged = true;
+            }
+
+            //If you're proficient with simple melee weapons
+            if(simpleMelee == true)
+            {
+                //Simple Melee Weapons
+                club = true;
+                dagger = true;
+                greatclub = true;
+                handaxe = true;
+                javelin = true;
+                lightHammer = true;
+                mace = true;
+                quarterstaff = true;
+                sickle = true;
+                spear = true;
+            }
+
+            //If you're proficient with simple ranged weapons
+            if(simpleRanged == true)
+            {
+                //Simple Ranged Weapons
+                lightCrossbow = true;
+                dart = true;
+                shortbow = true;
+                sling = true;
+            }
+
+            //If you're proficient with martial melee weapons
+            if(martialMelee == true)
+            {
+                //Martial Melee Weapons
+                battleaxe = true;
+                flail = true;
+                glaive = true;
+                greataxe = true;
+                greatsword = true;
+                halberd = true;
+                lance = true;
+                longsword = true;
+                maul = true;
+                morningstar = true;
+                pike = true;
+                rapier = true;
+                scimitar = true;
+                shortsword = true;
+                trident = true;
+                warPick = true;
+                warhammer = true;
+                whip = true;
+            }
+
+            //If you're proficient with martial ranged weapons
+            if(martialRanged == true)
+            {
+                //Martial Ranged Weapons
+                blowgun = true;
+                handCrossbow = true;
+                heavyCrossbow = true;
+                longbow = true;
+                net = true;
             }
         }
 
