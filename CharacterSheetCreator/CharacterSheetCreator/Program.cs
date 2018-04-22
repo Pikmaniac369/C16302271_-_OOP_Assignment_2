@@ -36,6 +36,19 @@ namespace CharacterSheetCreator
         Tiefling
     }
 
+    public enum SubRace
+    {
+        Hill_Dwarf,
+        Mountain_Dwarf,
+        High_Elf,
+        Wood_Elf,
+        Dark_Elf,
+        Lightfoot_Halfling,
+        Stout_Halfling,
+        Forest_Gnome,
+        Rock_Gnome
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -81,27 +94,32 @@ namespace CharacterSheetCreator
         }
     }
 
-
-    //Abstract classes for DnDClasses and DnDRaces:
-    //-----------------------------------------------
-    abstract class DndClass
+    public interface IMenu
     {
-
+        void displayMenu(Race r);
     }
 
-    abstract class DnDCharacter
+
+    abstract class DnDCharacter : IMenu
     {
+        //Character Info/Stats
         private string name;
         private int age;
-        Gender sex;
-        SizeCategory size;
-        Race race;
-        private int str;//Strength ability score
-        private int dex;//Dexterity ability score
-        private int con;//Constitution ability score
-        private int inte;//Intelligence ability score
-        private int wis;//Wisdom ability score
-        private int cha;//Charisma ability score
+
+        private int speed = 0;
+        private int str = 0;//Strength ability score
+        private int dex = 0;//Dexterity ability score
+        private int con = 0;//Constitution ability score
+        private int inte = 0;//Intelligence ability score
+        private int wis = 0;//Wisdom ability score
+        private int cha = 0;//Charisma ability score
+
+        private Gender sex;
+        private SizeCategory size;
+        private Race race;
+        private SubRace subRace;
+        
+        private string languagesKnown = "";
 
         public static int numOfCharacters = 0;
 
@@ -122,19 +140,27 @@ namespace CharacterSheetCreator
                 sex = Gender.Female;
             }
 
+            numOfCharacters++;//Increase the count of the number of characters
+
             //What race is the character?
             switch (selectedRace)
             {
                 case 1:
                     race = Race.Dwarf;
+                    con = con + 2;
+                    size = SizeCategory.Medium;
+                    speed = 25;
+                    displayMenu(race);
                     break;
 
                 case 2:
                     race = Race.Elf;
+                    displayMenu(race);
                     break;
 
                 case 3:
                     race = Race.Halfling;
+                    displayMenu(race);
                     break;
 
                 case 4:
@@ -147,6 +173,7 @@ namespace CharacterSheetCreator
 
                 case 6:
                     race = Race.Gnome;
+                    displayMenu(race);
                     break;
 
                 case 7:
@@ -161,111 +188,202 @@ namespace CharacterSheetCreator
                     race = Race.Tiefling;
                     break;
             }
-
-            numOfCharacters++;
-
-            /*switch(race)
-            {
-                case Race.Dwarf:
-                    break;
-
-                case Race.Elf:
-                    break;
-
-                case Race.Halfling:
-                    break;
-
-                case Race.Human:
-                    break;
-
-                case Race.Dragonborn:
-                    break;
-
-                case Race.Gnome:
-                    break;
-
-                case Race.Half_Elf:
-                    break;
-
-                case Race.Half_Orc:
-                    break;
-
-                case Race.Tiefling:
-                    break;
-            }*/
         }
 
+        //Get the current number of characters
         public static int getNumOfCharacters()
         {
             return numOfCharacters;
         }
-    }
 
+        //Implement the displayMenu() method inherited from the IMenu Interface
+        public void displayMenu(Race r)
+        {
+            int answer = 0;
 
-    public interface IHitPointRoller
-    {
+            Console.WriteLine("You are a {0}.", r);
+
+            if (r == Race.Dwarf)
+            {
+                do
+                {
+                    Console.WriteLine("Are you a Hill Dwarf or a Mountain Dwarf?");
+                    Console.WriteLine("\tPress 1: I am a Hill Dwarf.");
+                    Console.WriteLine("\tPress 2: I am a Mountain Dwarf.");
+
+                    answer = Convert.ToInt32(Console.ReadLine());
+
+                    //Assign the subRace
+                    if (answer == 1)
+                    {
+                        subRace = SubRace.Hill_Dwarf;
+                    }
+                    else if (answer == 2)
+                    {
+                        subRace = SubRace.Mountain_Dwarf;
+                    }
+
+                    //Inform the user of incorrect input
+                    if ((answer != 1) && (answer != 2))
+                    {
+                        Console.WriteLine("\nThat is not a sub-race of Dwarf!\n");
+                    }
+                }
+                while ((answer != 1) && (answer != 2));
+            }
+            else if (r == Race.Elf)
+            {
+                do
+                {
+                    Console.WriteLine("Are you a High Elf, Wood Elf or Dark Elf(Drow)?");
+                    Console.WriteLine("\tPress 1: I am a High Elf.");
+                    Console.WriteLine("\tPress 2: I am a Wood Elf.");
+                    Console.WriteLine("\tPress 3: I am a Dark Elf.");
+
+                    answer = Convert.ToInt32(Console.ReadLine());
+
+                    //Assign the subRace
+                    if(answer == 1)
+                    {
+                        subRace = SubRace.High_Elf;
+                    }
+                    else if(answer == 2)
+                    {
+                        subRace = SubRace.Wood_Elf;
+                    }
+                    else if(answer == 3)
+                    {
+                        subRace = SubRace.Dark_Elf;
+                    }
+
+                    //Inform the user of incorrect input
+                    if ((answer != 1) && (answer != 2) && (answer != 3))
+                    {
+                        Console.WriteLine("\nThat is not a sub-race of Elf!\n");
+                    }
+                }
+                while ( (answer != 1) && (answer != 2) && (answer != 3) );
+            }
+            else if (r == Race.Halfling)
+            {
+                do
+                {
+                    Console.WriteLine("Are you a Lightfoot Halfling or a Stout Halfling?");
+                    Console.WriteLine("\tPress 1: I am a Lightfoot Halfling.");
+                    Console.WriteLine("\tPress 2: I am a Stout Halfling.");
+
+                    answer = Convert.ToInt32(Console.ReadLine());
+
+                    //Assign the subRace
+                    if (answer == 1)
+                    {
+                        subRace = SubRace.Lightfoot_Halfling;
+                    }
+                    else if (answer == 2)
+                    {
+                        subRace = SubRace.Stout_Halfling;
+                    }
+
+                    //Inform the user of incorrect input
+                    if ((answer != 1) && (answer != 2))
+                    {
+                        Console.WriteLine("\nThat is not a sub-race of Halfling!\n");
+                    }
+                }
+                while ((answer != 1) && (answer != 2));
+            }
+            else if (r == Race.Gnome)
+            {
+                do
+                {
+                    Console.WriteLine("Are you a Forest Gnome or a Rock Gnome?");
+                    Console.WriteLine("\tPress 1: I am a Forest Gnome.");
+                    Console.WriteLine("\tPress 2: I am a Rock Gnome.");
+
+                    answer = Convert.ToInt32(Console.ReadLine());
+
+                    //Assign the subRace
+                    if (answer == 1)
+                    {
+                        subRace = SubRace.Forest_Gnome;
+                    }
+                    else if (answer == 2)
+                    {
+                        subRace = SubRace.Rock_Gnome;
+                    }
+
+                    //Inform the user of incorrect input
+                    if ((answer != 1) && (answer != 2))
+                    {
+                        Console.WriteLine("\nThat is not a sub-race of Gnome!\n");
+                    }
+                }
+                while ((answer != 1) && (answer != 2));
+            }
+
+        }
 
     }
 
 
     //DnD CLASSES:
     //----------------------------------------------
-    class Barbarian : DnDCharacter, IHitPointRoller
+    class Barbarian : DnDCharacter
     {
 
     }
 
-    class Bard : DnDCharacter, IHitPointRoller
+    class Bard : DnDCharacter
     {
 
     }
 
-    class Cleric : DnDCharacter, IHitPointRoller
+    class Cleric : DnDCharacter
     {
 
     }
 
-    class Druid : DnDCharacter, IHitPointRoller
+    class Druid : DnDCharacter
     {
 
     }
 
-    class Fighter : DnDCharacter, IHitPointRoller
+    class Fighter : DnDCharacter
     {
 
     }
 
-    class Monk : DnDCharacter, IHitPointRoller
+    class Monk : DnDCharacter
     {
 
     }
 
-    class Paladin : DnDCharacter, IHitPointRoller
+    class Paladin : DnDCharacter
     {
         
     }
 
-    class Ranger : DnDCharacter, IHitPointRoller
+    class Ranger : DnDCharacter
     {
 
     }
 
-    class Rogue : DnDCharacter, IHitPointRoller
+    class Rogue : DnDCharacter
     {
 
     }
 
-    class Sorcerer : DnDCharacter, IHitPointRoller
+    class Sorcerer : DnDCharacter
     {
 
     }
 
-    class Warlock : DnDCharacter, IHitPointRoller
+    class Warlock : DnDCharacter
     {
 
     }
 
-    class Wizard : DnDCharacter, IHitPointRoller
+    class Wizard : DnDCharacter
     {
 
     }
