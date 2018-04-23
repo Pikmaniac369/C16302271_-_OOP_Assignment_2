@@ -81,3 +81,37 @@ i.e. warlock is class, race is an enumerated type
 		
 
 ADD SOME WAY OF GETTING FOUR RANDOM VALUES BETWEEN 1 AND 6 FOR CALCULATING ABILITY SCORES AND SET THE VALUES BEFORE DETERMINING RACE!
+
+
+
+tempScore = abilityScore;
+
+if(tempScore > 10)
+{
+	if( (tempScore % 2) == 1)//If it's an odd number
+	{
+		tempScore = tempScore - 1;
+	}
+	
+	if(tempScore == 10)
+	{
+		abilityScore_Modifier = 0;
+	}
+	else
+	{
+		abilityScore_Modifier = (tempScore - 10) / 2;
+	}
+}
+else if(tempScore < 10)
+{
+	if( (tempScore % 2) == 0 )//If it's an even number
+	{
+		tempScore = tempScore + 1;
+	}
+	
+	abilityScore_Modifier = (11 - tempScore) / (-2);
+}
+else if(tempScore == 10)
+{
+	abilityScore_Modifier = 0;
+}

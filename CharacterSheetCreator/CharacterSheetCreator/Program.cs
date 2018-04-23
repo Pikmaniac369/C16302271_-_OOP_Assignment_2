@@ -628,11 +628,15 @@ namespace CharacterSheetCreator
             lightArmour = true;
             mediumArmour = true;
             shields = true;
+
+            //Skill Proficiencies
+            athletics = true;
+            intimidation = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 12 + conMod;
         }
     }
 
@@ -657,11 +661,17 @@ namespace CharacterSheetCreator
 
             //Armour Proficiencies
             lightArmour = true;
+
+            //Skill Proficiencies
+            history = true;
+            performance = true;
+            persuasion = true;
+
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 8 + conMod;
         }
     }
 
@@ -683,11 +693,15 @@ namespace CharacterSheetCreator
             lightArmour = true;
             mediumArmour = true;
             shields = true;
+
+            //Skill Proficiencies
+            medicine = true;
+            religion = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 8 + conMod;
         }
     }
 
@@ -718,11 +732,15 @@ namespace CharacterSheetCreator
             lightArmour = true;
             mediumArmour = true;
             shields = true;
+
+            //Sill Proficiencies
+            animalHandling = true;
+            nature = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 8 + conMod;
         }
     }
 
@@ -746,11 +764,15 @@ namespace CharacterSheetCreator
             mediumArmour = true;
             heavyArmour = true;
             shields = true;
+
+            //Skill Proficiencies
+            acrobatics = true;
+            athletics = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 10 + conMod;
         }
     }
 
@@ -771,12 +793,14 @@ namespace CharacterSheetCreator
 
             //Armour Proficiencies: NONE
 
-
+            //Skill Proficiencies
+            acrobatics = true;
+            insight = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 8 + conMod;
         }
     }
 
@@ -800,11 +824,15 @@ namespace CharacterSheetCreator
             mediumArmour = true;
             heavyArmour = true;
             shields = true;
+
+            //Skill Proficiencies
+            insight = true;
+            religion = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 10 + conMod;
         }
     }
 
@@ -827,11 +855,16 @@ namespace CharacterSheetCreator
             lightArmour = true;
             mediumArmour = true;
             shields = true;
+
+            //Skill Proficiencies
+            animalHandling = true;
+            perception = true;
+            survival = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 10 + conMod;
         }
     }
 
@@ -855,11 +888,17 @@ namespace CharacterSheetCreator
 
             //Armour Proficiencies
             lightArmour = true;
+
+            //Skill Proficiencies
+            acrobatics = true;
+            investigation = true;
+            sleightOfHand = true;
+            stealth = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 8 + conMod;
         }
     }
 
@@ -883,12 +922,14 @@ namespace CharacterSheetCreator
 
             //Armour Proficiencies: NONE
 
-
+            //Skill Proficiencies
+            arcana = true;
+            religion = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 6 + conMod;
         }
     }
 
@@ -908,11 +949,15 @@ namespace CharacterSheetCreator
 
             //Armour Proficiencies
             lightArmour = true;
+
+            //Skill Proficiences
+            arcana = true;
+            investigation = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 8 + conMod;
         }
     }
 
@@ -933,14 +978,15 @@ namespace CharacterSheetCreator
             sling = true;
             quarterstaff = true;
             lightCrossbow = true;
+
+            //Skill Proficiencies
+            arcana = true;
+            history = true;
         }
 
         public override int hpCalc()
         {
-            return 0;
+            return 6 + conMod;
         }
     }
-
-
-    
 }
