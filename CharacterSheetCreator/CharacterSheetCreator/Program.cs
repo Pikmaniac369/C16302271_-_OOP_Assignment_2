@@ -116,6 +116,13 @@ namespace CharacterSheetCreator
         public int wis = 0;//Wisdom ability score
         public int cha = 0;//Charisma ability score
 
+        public int strMod = 0;//Strength score modifier
+        public int dexMod = 0;//Dexterity score modifier
+        public int conMod = 0;//Constitution score modifier
+        public int inteMod = 0;//Intelligence score modifier
+        public int wisMod = 0;//Wisdom score modifier
+        public int chaMod = 0;//Charisma score modifier
+
         private Gender sex;
         private SizeCategory size;
         private Race race;
@@ -211,11 +218,19 @@ namespace CharacterSheetCreator
         public static int numOfCharacters = 0;
 
         //DON'T LET THIS BE CALLED IF ANY NUMBER OTHER THAN THE RACE ONES ARE CHOSEN!!!!!!!!!!!!!!!
-        public void createCharacter(string namae, int anni, bool morf, int selectedRace)
+        public DnDCharacter(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore)
         {
             //Set the character's name and age:
             name = namae;
             age = anni;
+
+            //Set the character's ability scores
+            str = strScore;
+            dex = dexScore;
+            con = conScore;
+            inte = inteScore;
+            wis = wisScore;
+            cha = chaScore;
 
             //What is the character's gender?
             if (morf == true)
@@ -393,22 +408,83 @@ namespace CharacterSheetCreator
                     break;
             }
 
+            //Calculate the ability score modifiers
+            strMod = calcModifier(str);
+            dexMod = calcModifier(dex);
+            conMod = calcModifier(con);
+            inteMod = calcModifier(inte);
+            wisMod = calcModifier(wis);
+            chaMod = calcModifier(cha);
+
+            //Set the character's proficiencies
+            setWandAProf();
+        }
+
+        //Get the current number of characters
+        public static int getNumOfCharacters()
+        {
+            return numOfCharacters;
+        }
+
+        //Calculate the ability score modifiers
+        public int calcModifier(int abilityScore)
+        {
+            int abilityScore_Modifier = 0;
+
+            int tempScore = abilityScore;
+
+            if (tempScore > 10)
+            {
+                if ((tempScore % 2) == 1)//If it's an odd number
+                {
+                    tempScore = tempScore - 1;//Reduce tempScore by 1 so it divides evenly by 2
+                }
+
+                if (tempScore == 10)
+                {
+                    abilityScore_Modifier = 0;
+                }
+                else
+                {
+                    abilityScore_Modifier = (tempScore - 10) / 2;
+                }
+            }
+            else if (tempScore < 10)
+            {
+                if ((tempScore % 2) == 0)//If it's an even number
+                {
+                    tempScore = tempScore + 1;
+                }
+
+                abilityScore_Modifier = (11 - tempScore) / (-2);
+            }
+            else if (tempScore == 10)
+            {
+                abilityScore_Modifier = 0;
+            }
+
+            return abilityScore_Modifier;
+        }
+
+        //Set weapon and armour proficiencies
+        public void setWandAProf()
+        {
             //If you're proficient with simple weapons
-            if(simple == true)
+            if (simple == true)
             {
                 simpleMelee = true;
                 simpleRanged = true;
             }
 
             //If you're proficient with martial weapons
-            if(martial == true)
+            if (martial == true)
             {
                 martialMelee = true;
                 martialRanged = true;
             }
 
             //If you're proficient with simple melee weapons
-            if(simpleMelee == true)
+            if (simpleMelee == true)
             {
                 //Simple Melee Weapons
                 club = true;
@@ -424,7 +500,7 @@ namespace CharacterSheetCreator
             }
 
             //If you're proficient with simple ranged weapons
-            if(simpleRanged == true)
+            if (simpleRanged == true)
             {
                 //Simple Ranged Weapons
                 lightCrossbow = true;
@@ -434,7 +510,7 @@ namespace CharacterSheetCreator
             }
 
             //If you're proficient with martial melee weapons
-            if(martialMelee == true)
+            if (martialMelee == true)
             {
                 //Martial Melee Weapons
                 battleaxe = true;
@@ -458,7 +534,7 @@ namespace CharacterSheetCreator
             }
 
             //If you're proficient with martial ranged weapons
-            if(martialRanged == true)
+            if (martialRanged == true)
             {
                 //Martial Ranged Weapons
                 blowgun = true;
@@ -467,12 +543,6 @@ namespace CharacterSheetCreator
                 longbow = true;
                 net = true;
             }
-        }
-
-        //Get the current number of characters
-        public static int getNumOfCharacters()
-        {
-            return numOfCharacters;
         }
 
         //Implement the displayMenu() method inherited from the IMenu Interface
@@ -612,7 +682,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Barbarians
     class Barbarian : DnDCharacter
     {
-        Barbarian() : base()
+         public Barbarian(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -644,7 +714,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Bards
     class Bard : DnDCharacter
     {
-        Bard() : base()
+        public Bard(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -678,7 +748,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Clerics
     class Cleric : DnDCharacter
     {
-        Cleric() : base()
+        public Cleric(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -708,7 +778,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Druids
     class Druid : DnDCharacter
     {
-        Druid() : base()
+        public Druid(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -747,7 +817,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Fighters
     class Fighter : DnDCharacter
     {
-        Fighter() : base()
+        public Fighter(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -779,7 +849,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Monks
     class Monk : DnDCharacter
     {
-        Monk() : base()
+        public Monk(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -807,7 +877,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Paladins
     class Paladin : DnDCharacter
     {
-        Paladin() : base()
+        public Paladin(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -839,7 +909,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Rangers
     class Ranger : DnDCharacter
     {
-        Ranger() : base()
+        public Ranger(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -871,7 +941,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Rogues
     class Rogue : DnDCharacter
     {
-        Rogue() : base()
+        public Rogue(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -905,7 +975,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Sorcerers
     class Sorcerer : DnDCharacter
     {
-        Sorcerer() : base()
+        public Sorcerer(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -936,7 +1006,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Warlocks
     class Warlock : DnDCharacter
     {
-        Warlock() : base()
+        public Warlock(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
@@ -964,7 +1034,7 @@ namespace CharacterSheetCreator
     //Stuff specific to Wizards
     class Wizard : DnDCharacter
     {
-        Wizard() : base()
+        public Wizard(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
             hpMax = hpCalc();
 
