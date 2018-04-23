@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CharacterSheetCreator
 {
@@ -62,7 +63,7 @@ namespace CharacterSheetCreator
 
         private static void displayMenu()
         {
-            int answer;
+            int answer = 0;
 
             Console.WriteLine("Welcome to my Dungeons & Dragons Character Sheet Creation tool!");
 
@@ -71,6 +72,7 @@ namespace CharacterSheetCreator
                 Console.WriteLine("What would you like to do?\n");
                 Console.WriteLine("\tPress 1: Create a new character.");
                 Console.WriteLine("\tPress 2: View the list of characters that already exist.");
+                Console.WriteLine("\tPress 3: Close the application.");
 
                 answer = Convert.ToInt32(Console.ReadLine());
 
@@ -83,14 +85,20 @@ namespace CharacterSheetCreator
                     if(DnDCharacter.getNumOfCharacters() == 0)
                     {
                         Console.WriteLine("\nThere are currently no characters created!");
+                        answer = 0;
                     }
+                }
+                else if(answer == 3)
+                {
+                    Environment.Exit(0);//Close the application (Works for Console Applications)
+                    //Application.Exit() works for Windows Forms based applications
                 }
                 else
                 {
                     Console.WriteLine("Sorry, but that is not a valid input. Please select either option 1 or option 2 from the main menu!\n");
                 }
             }
-            while ( (answer != 1) && (answer != 2) );
+            while ( (answer != 1) && (answer != 2) && (answer != 3) );
         }
     }
 
