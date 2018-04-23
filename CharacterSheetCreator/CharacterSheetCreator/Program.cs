@@ -206,6 +206,7 @@ namespace CharacterSheetCreator
         public bool lightArmour = false;
         public bool mediumArmour = false;
         public bool heavyArmour = false;
+        public bool shields = false;
 
         public static int numOfCharacters = 0;
 
@@ -608,11 +609,25 @@ namespace CharacterSheetCreator
 
     //DnD CLASSES:
     //----------------------------------------------
+    //Stuff specific to Barbarians
     class Barbarian : DnDCharacter
     {
         Barbarian() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            strSave = true;
+            conSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+            martial = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
+            mediumArmour = true;
+            shields = true;
         }
 
         public override int hpCalc()
@@ -621,11 +636,27 @@ namespace CharacterSheetCreator
         }
     }
 
+
+    //Stuff specific to Bards
     class Bard : DnDCharacter
     {
         Bard() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            dexSave = true;//Proficient in Dexterity Saving Throws
+            chaSave = true;//Proficient in Charisma Saving Throws
+
+            //Weapon Proficiencies
+            simple = true;
+            handCrossbow = true;
+            longsword = true;
+            rapier = true;
+            shortsword = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
         }
 
         public override int hpCalc()
@@ -634,11 +665,24 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Clerics
     class Cleric : DnDCharacter
     {
         Cleric() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            wisSave = true;
+            chaSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
+            mediumArmour = true;
+            shields = true;
         }
 
         public override int hpCalc()
@@ -647,11 +691,33 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Druids
     class Druid : DnDCharacter
     {
         Druid() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            inteSave = true;
+            wisSave = true;
+
+            //Weapon Proficiencies
+            club = true;
+            dagger = true;
+            dart = true;
+            javelin = true;
+            mace = true;
+            quarterstaff = true;
+            scimitar = true;
+            sickle = true;
+            sling = true;
+            spear = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
+            mediumArmour = true;
+            shields = true;
         }
 
         public override int hpCalc()
@@ -660,11 +726,26 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Fighters
     class Fighter : DnDCharacter
     {
         Fighter() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            strSave = true;
+            conSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+            martial = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
+            mediumArmour = true;
+            heavyArmour = true;
+            shields = true;
         }
 
         public override int hpCalc()
@@ -673,11 +754,24 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Monks
     class Monk : DnDCharacter
     {
         Monk() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            strSave = true;
+            dexSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+            shortsword = true;
+
+            //Armour Proficiencies: NONE
+
+
         }
 
         public override int hpCalc()
@@ -686,11 +780,26 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Paladins
     class Paladin : DnDCharacter
     {
         Paladin() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            wisSave = true;
+            chaSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+            martial = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
+            mediumArmour = true;
+            heavyArmour = true;
+            shields = true;
         }
 
         public override int hpCalc()
@@ -699,11 +808,25 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Rangers
     class Ranger : DnDCharacter
     {
         Ranger() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            strSave = true;
+            dexSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+            martial = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
+            mediumArmour = true;
+            shields = true;
         }
 
         public override int hpCalc()
@@ -712,11 +835,26 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Rogues
     class Rogue : DnDCharacter
     {
         Rogue() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            dexSave = true;
+            inteSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+            handCrossbow = true;
+            longsword = true;
+            rapier = true;
+            shortsword = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
         }
 
         public override int hpCalc()
@@ -725,11 +863,27 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Sorcerers
     class Sorcerer : DnDCharacter
     {
         Sorcerer() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            conSave = true;
+            chaSave = true;
+
+            //Weapon Proficiencies
+            dagger = true;
+            dart = true;
+            sling = true;
+            quarterstaff = true;
+            lightCrossbow = true;
+
+            //Armour Proficiencies: NONE
+
+
         }
 
         public override int hpCalc()
@@ -738,11 +892,22 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Warlocks
     class Warlock : DnDCharacter
     {
         Warlock() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            wisSave = true;
+            chaSave = true;
+
+            //Weapon Proficiencies
+            simple = true;
+
+            //Armour Proficiencies
+            lightArmour = true;
         }
 
         public override int hpCalc()
@@ -751,11 +916,23 @@ namespace CharacterSheetCreator
         }
     }
 
+    //Stuff specific to Wizards
     class Wizard : DnDCharacter
     {
         Wizard() : base()
         {
             hpMax = hpCalc();
+
+            //Saving Throw Proficiencies
+            inteSave = true;
+            wisSave = true;
+
+            //Weapon Proficiencies
+            dagger = true;
+            dart = true;
+            sling = true;
+            quarterstaff = true;
+            lightCrossbow = true;
         }
 
         public override int hpCalc()
