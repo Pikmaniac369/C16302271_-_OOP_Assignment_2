@@ -90,6 +90,10 @@ namespace CharacterSheetCreator
                 }
                 else if(answer == 3)
                 {
+                    //Thank the user for using the application
+                    Console.WriteLine("Thank you for using my Dungeons & Dragons Character Sheet Creation tool!");
+                    Console.WriteLine("See ya! :)");
+
                     Environment.Exit(0);//Close the application (Works for Console Applications)
                     //Application.Exit() works for Windows Forms based applications
                 }
@@ -99,6 +103,113 @@ namespace CharacterSheetCreator
                 }
             }
             while ( (answer != 1) && (answer != 2) && (answer != 3) );
+        }
+
+        private static void createCharacter()
+        {
+            //Character Info:
+            string name = "";
+            int age = 0;
+            int morfSelect = 0;
+            bool morf = true;
+            int selectedRace = 0;
+
+            int strength = 0;
+            int dexterity = 0;
+            int constitution = 0;
+            int intelligence = 0;
+            int wisdom = 0;
+            int charisma = 0;
+
+            Console.WriteLine("\nWhat is your character's name?: ");//Character's name
+            name = Console.ReadLine();//Read in the name
+
+            Console.WriteLine("\nWhat age is {0}?:", name );//Character's age
+            age = Convert.ToInt32(Console.ReadLine());//Read in the age and convert to an int
+
+            do
+            {
+                Console.WriteLine("\nIs {0} male or female?:", name);//Is the character male or female
+                Console.WriteLine("\tPress 1: Male");
+                Console.WriteLine("\tPress 2: Female");
+
+                morfSelect = Convert.ToInt32(Console.ReadLine());
+
+                if(morfSelect == 1)
+                {
+                    morf = true;//The character is male
+                }
+                else if(morfSelect == 2)
+                {
+                    morf = false;//The character is female
+                }
+                else if( (morfSelect != 1) && (morfSelect != 2) )
+                {
+                    //Inform the user that they entered incorrect input
+                    Console.WriteLine("\nPlease select one of the options given.");
+                }
+            }
+            while( (morfSelect != 1) && (morfSelect != 2) );
+
+            do
+            {
+                Console.WriteLine("\nWhat race is {0}?:", name);//Character's race
+                Console.WriteLine("\tPress 1: Dwarf");
+                Console.WriteLine("\tPress 2: Elf");
+                Console.WriteLine("\tPress 3: Halfling");
+                Console.WriteLine("\tPress 4: Human");
+                Console.WriteLine("\tPress 5: Dragonborn");
+                Console.WriteLine("\tPress 6: Gnome");
+                Console.WriteLine("\tPress 7: Half-Elf");
+                Console.WriteLine("\tPress 8: Half-Orc");
+                Console.WriteLine("\tPress 9: Tiefling");
+
+                selectedRace = Convert.ToInt32(Console.ReadLine());
+            }
+            while( (selectedRace != 1) && (selectedRace != 2) && (selectedRace != 3) && (selectedRace != 4) && (selectedRace != 5) && (selectedRace != 6) && (selectedRace != 7) && (selectedRace != 8) && (selectedRace != 9) );
+
+            strength = calcAbilityScore(strength);
+            dexterity = calcAbilityScore(dexterity);
+            constitution = calcAbilityScore(constitution);
+            intelligence = calcAbilityScore(intelligence);
+            wisdom = calcAbilityScore(wisdom);
+            charisma = calcAbilityScore(charisma);
+            
+        }
+
+        public static int calcAbilityScore(int ability)
+        {
+            //Four rolls of a 6-sided dice
+            int roll1 = 0;
+            int roll2 = 0;
+            int roll3 = 0;
+            int roll4 = 0;
+            Random rand = new Random();
+
+            roll1 = rand.Next(1, 7);
+            roll2 = rand.Next(1, 7);
+            roll3 = rand.Next(1, 7);
+            roll4 = rand.Next(1, 7);
+
+            //Add the three largest rolls
+            if ( (roll1 >= roll4) && (roll2 >= 4) && (roll3 >= 4) )
+            {
+                ability = roll1 + roll2 + roll3;
+            }
+            else if ( (roll1 >= roll3) && (roll2 >= roll3) && (roll4 >= roll3))
+            {
+                ability = roll1 + roll2 + roll4;
+            }
+            else if ( (roll1 >= roll2) && (roll3 >= roll2) && (roll4 >= roll2) )
+            {
+                ability = roll1 + roll3 + roll4;
+            }
+            else if( (roll2 >= roll1) && (roll3 >= roll1) && (roll4 >= roll1) )
+            {
+                ability = roll2 + roll3 + roll4;
+            }
+
+            return ability;
         }
     }
 
