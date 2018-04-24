@@ -39,6 +39,7 @@ namespace CharacterSheetCreator
 
     public enum SubRace
     {
+        NA,
         Hill_Dwarf,
         Mountain_Dwarf,
         High_Elf,
@@ -83,6 +84,7 @@ namespace CharacterSheetCreator
                 {
                     Console.WriteLine("\nOkay then! Let's make a new character!");
                     createCharacter(characterList);
+                    writeToFile(characterList);
                     answer = 0;//Reser the value of answer to 0 so the main menu reappears
                 }
                 else if(answer == 2)
@@ -118,9 +120,133 @@ namespace CharacterSheetCreator
             while ( (answer != 1) && (answer != 2) && (answer != 3) );
         }
 
-        private static void writeToFile()
+        private static void writeToFile(List<DnDCharacter> characterList)
         {
+            StreamWriter sw;
 
+            foreach (DnDCharacter c in characterList)
+            {
+                using (sw = new StreamWriter("CharacterStorage/" + c.name + ".txt"))
+                {
+                    //Inform user that file writing is taking place
+                    Console.WriteLine("\nAdding {0} to the file!\n", c.name);
+
+                    sw.Write("Name: " + c.name);//Write the name to the file
+                    sw.Write("\tAge: " + c.age + " years old");//Write the age to the file
+                    sw.WriteLine("\tRace: " + c.race);//Write the race to the file
+                    sw.Write("Sub-Race: " + c.subRace);//Write the sub-race to the file
+                    sw.Write("\tClass: " + c.characterClass + " Lvl " + c.level);//Character's class
+                    sw.Write("\tSex: " + c.sex);//Character's gender
+                    sw.WriteLine("\tSize: " + c.size);//Character's size
+
+                    sw.WriteLine();
+
+                    sw.WriteLine("\nMax. HP: " + c.hpMax);
+                    //Ability scores and modifiers
+                    sw.WriteLine("Strength:     " + c.str + "\tMod: " + c.strMod);
+                    sw.WriteLine("Dexterity:    " + c.dex + "\tMod: " + c.dexMod);
+                    sw.WriteLine("Constitution: " + c.con + "\tMod: " + c.conMod);
+                    sw.WriteLine("Intelligence: " + c.inte + "\tMod: " + c.inteMod);
+                    sw.WriteLine("Wisdom:       " + c.wis + "\tMod: " + c.wisMod);
+                    sw.WriteLine("Charisma:     " + c.cha + "\tMod: " + c.chaMod);
+
+                    sw.WriteLine();
+
+                    //Languages Known
+                    sw.WriteLine("\n{0} knows {1}.", c.name, c.languagesKnown);
+
+                    sw.WriteLine();
+
+                    //Saving Throw Proficiencies
+                    sw.WriteLine("Saving Throw Proficiencies:");
+                    sw.WriteLine("                                  Proficient:");
+                    sw.WriteLine("Strength Saving Throws                 " + c.strSave);
+                    sw.WriteLine("Dexterity Saving Throws                " + c.dexSave);
+                    sw.WriteLine("Constitution Saving Throws             " + c.conSave);
+                    sw.WriteLine("Intelligence Saving Throws             " + c.inteSave);
+                    sw.WriteLine("Wisdom Saving Throws                   " + c.wisSave);
+                    sw.WriteLine("Charisma Saving Throws                 " + c.chaSave);
+
+                    sw.WriteLine();
+
+                    //Skill Proficiencies
+                    sw.WriteLine("Skill Proficiencies:");
+                    sw.WriteLine("                      Proficient:");
+                    sw.WriteLine("Acrobatics                 " + c.acrobatics);
+                    sw.WriteLine("Animal Handling            " + c.animalHandling);
+                    sw.WriteLine("Arcana                     " + c.arcana);
+                    sw.WriteLine("Athletics                  " + c.athletics);
+                    sw.WriteLine("Deception                  " + c.deception);
+                    sw.WriteLine("History                    " + c.history);
+                    sw.WriteLine("Insight                    " + c.insight);
+                    sw.WriteLine("Intimidation               " + c.intimidation);
+                    sw.WriteLine("Investigation              " + c.investigation);
+                    sw.WriteLine("Medicine                   " + c.medicine);
+                    sw.WriteLine("Nature                     " + c.nature);
+                    sw.WriteLine("Perception                 " + c.perception);
+                    sw.WriteLine("Performance                " + c.performance);
+                    sw.WriteLine("Persuasion                 " + c.persuasion);
+                    sw.WriteLine("Religion                   " + c.religion);
+                    sw.WriteLine("Sleight of Hand            " + c.sleightOfHand);
+                    sw.WriteLine("Stealth                    " + c.stealth);
+                    sw.WriteLine("Survival                   " + c.survival);
+
+                    sw.WriteLine();
+
+                    //Weapon Proficiencies
+                    sw.WriteLine("Weapon Proficiencies:");
+                    sw.WriteLine("                      Proficient:");
+                    sw.WriteLine("Club                       " + c.club);
+                    sw.WriteLine("Dagger                     " + c.dagger);
+                    sw.WriteLine("Greatclub                  " + c.greatclub);
+                    sw.WriteLine("Handaxe                    " + c.handaxe);
+                    sw.WriteLine("Javelin                    " + c.javelin);
+                    sw.WriteLine("Light Hammer               " + c.lightHammer);
+                    sw.WriteLine("Mace                       " + c.mace);
+                    sw.WriteLine("Quarterstaff               " + c.quarterstaff);
+                    sw.WriteLine("Sickle                     " + c.sickle);
+                    sw.WriteLine("Spear                      " + c.spear);
+                    sw.WriteLine("Light Crossbow             " + c.lightCrossbow);
+                    sw.WriteLine("Dart                       " + c.dart);
+                    sw.WriteLine("Shortbow                   " + c.shortbow);
+                    sw.WriteLine("Sling                      " + c.sling);
+                    sw.WriteLine("Battleaxe                  " + c.battleaxe);
+                    sw.WriteLine("Flail                      " + c.flail);
+                    sw.WriteLine("Glaive                     " + c.glaive);
+                    sw.WriteLine("Greataxe                   " + c.greataxe);
+                    sw.WriteLine("Greatsword                 " + c.greatsword);
+                    sw.WriteLine("Halberd                    " + c.halberd);
+                    sw.WriteLine("Lance                      " + c.lance);
+                    sw.WriteLine("Longsword                  " + c.longsword);
+                    sw.WriteLine("Maul                       " + c.maul);
+                    sw.WriteLine("Morningstar                " + c.morningstar);
+                    sw.WriteLine("Pike                       " + c.pike);
+                    sw.WriteLine("Rapier                     " + c.rapier);
+                    sw.WriteLine("Scimitar                   " + c.scimitar);
+                    sw.WriteLine("Shortsword                 " + c.shortsword);
+                    sw.WriteLine("Trident                    " + c.trident);
+                    sw.WriteLine("War Pick                   " + c.warPick);
+                    sw.WriteLine("Warhammer                  " + c.warhammer);
+                    sw.WriteLine("Whip                       " + c.whip);
+                    sw.WriteLine("Blowgun                    " + c.blowgun);
+                    sw.WriteLine("Hand Crossbow              " + c.handCrossbow);
+                    sw.WriteLine("Heavy Crossbow             " + c.heavyCrossbow);
+                    sw.WriteLine("Longbow                    " + c.longbow);
+                    sw.WriteLine("Net                        " + c.net);
+
+                    sw.WriteLine();
+
+                    //Armour Proficiencies
+                    sw.WriteLine("Armour Proficiencies:");
+                    sw.WriteLine("                      Proficient:");
+                    sw.WriteLine("Light Armour               " + c.lightArmour);
+                    sw.WriteLine("Medium Armour              " + c.mediumArmour);
+                    sw.WriteLine("Heavy Armour               " + c.heavyArmour);
+                    sw.WriteLine("Shields                    " + c.shields);
+                }
+                    
+            }   
+            
         }
 
         private static void createCharacter(List<DnDCharacter> characterList)
@@ -344,9 +470,11 @@ namespace CharacterSheetCreator
     abstract class DnDCharacter : IMenu
     {
         //Character Info/Stats
-        private string name;
-        private int age;
-        private int level = 1;
+        public string name;
+        public int age;
+        public int level = 1;
+
+        public string characterClass = "";
 
         public int hpMax = 0;//Maximum hit points
         public int speed = 0;//Base walking speed
@@ -364,10 +492,10 @@ namespace CharacterSheetCreator
         public int wisMod = 0;//Wisdom score modifier
         public int chaMod = 0;//Charisma score modifier
 
-        private Gender sex;
-        private SizeCategory size;
-        private Race race;
-        private SubRace subRace;
+        public Gender sex;
+        public SizeCategory size;
+        public Race race;
+        public SubRace subRace;
 
         public string languagesKnown = "";
 
@@ -584,6 +712,7 @@ namespace CharacterSheetCreator
                     size = SizeCategory.Medium;
                     speed = 30;//Base walking speed
                     languagesKnown = "Common and one other of your choice";
+                    subRace = SubRace.NA;
                     break;
 
                 case 5:
@@ -593,6 +722,7 @@ namespace CharacterSheetCreator
                     size = SizeCategory.Medium;
                     speed = 30;//Base walking speed
                     languagesKnown = "Common and Draconic";
+                    subRace = SubRace.NA;
                     break;
 
                 case 6:
@@ -621,6 +751,7 @@ namespace CharacterSheetCreator
                     size = SizeCategory.Medium;
                     speed = 30;//Base walking speed
                     languagesKnown = "Common, Elvish and one language of your choice";
+                    subRace = SubRace.NA;
 
                     //Skill Proficiencies:
                     arcana = true;
@@ -634,6 +765,7 @@ namespace CharacterSheetCreator
                     size = SizeCategory.Medium;
                     speed = 30;//Base walking speed
                     languagesKnown = "Common and Orc";
+                    subRace = SubRace.NA;
 
                     //Skill Proficiencies:
                     intimidation = true;
@@ -646,6 +778,7 @@ namespace CharacterSheetCreator
                     size = SizeCategory.Medium;
                     speed = 30;//Base walking speed
                     languagesKnown = "Common and Infernal";
+                    subRace = SubRace.NA;
                     break;
             }
 
@@ -925,6 +1058,7 @@ namespace CharacterSheetCreator
     {
          public Barbarian(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Barbarian";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -957,6 +1091,7 @@ namespace CharacterSheetCreator
     {
         public Bard(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Bard";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -991,6 +1126,7 @@ namespace CharacterSheetCreator
     {
         public Cleric(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Cleric";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1021,6 +1157,7 @@ namespace CharacterSheetCreator
     {
         public Druid(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Druid";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1060,6 +1197,7 @@ namespace CharacterSheetCreator
     {
         public Fighter(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Fighter";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1092,6 +1230,7 @@ namespace CharacterSheetCreator
     {
         public Monk(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Monk";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1120,6 +1259,7 @@ namespace CharacterSheetCreator
     {
         public Paladin(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Paladin";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1152,6 +1292,7 @@ namespace CharacterSheetCreator
     {
         public Ranger(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Ranger";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1184,6 +1325,7 @@ namespace CharacterSheetCreator
     {
         public Rogue(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Rogue";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1218,6 +1360,7 @@ namespace CharacterSheetCreator
     {
         public Sorcerer(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Sorcerer";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1249,6 +1392,7 @@ namespace CharacterSheetCreator
     {
         public Warlock(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Warlock";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
@@ -1277,6 +1421,7 @@ namespace CharacterSheetCreator
     {
         public Wizard(string namae, int anni, bool morf, int selectedRace, int strScore, int dexScore, int conScore, int inteScore, int wisScore, int chaScore) : base(namae, anni, morf, selectedRace, strScore, dexScore, conScore, inteScore, wisScore, chaScore)
         {
+            characterClass = "Wizard";
             hpMax = hpCalc();
 
             //Saving Throw Proficiencies
