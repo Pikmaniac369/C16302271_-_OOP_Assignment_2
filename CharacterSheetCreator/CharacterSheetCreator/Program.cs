@@ -79,6 +79,7 @@ namespace CharacterSheetCreator
                 if(answer == 1)
                 {
                     Console.WriteLine("\nOkay then! Let's make a new character!");
+                    createCharacter();
                 }
                 else if(answer == 2)
                 {
@@ -107,12 +108,16 @@ namespace CharacterSheetCreator
 
         private static void createCharacter()
         {
+            //New Character
+            DnDCharacter newCharacter;
+
             //Character Info:
             string name = "";
             int age = 0;
             int morfSelect = 0;
             bool morf = true;
             int selectedRace = 0;
+            int selectedClass = 0;
 
             int strength = 0;
             int dexterity = 0;
@@ -130,8 +135,8 @@ namespace CharacterSheetCreator
             do
             {
                 Console.WriteLine("\nIs {0} male or female?:", name);//Is the character male or female
-                Console.WriteLine("\tPress 1: Male");
-                Console.WriteLine("\tPress 2: Female");
+                Console.WriteLine("\tPress 1: {0} is Male", name);
+                Console.WriteLine("\tPress 2: {0} is Female", name);
 
                 morfSelect = Convert.ToInt32(Console.ReadLine());
 
@@ -154,15 +159,15 @@ namespace CharacterSheetCreator
             do
             {
                 Console.WriteLine("\nWhat race is {0}?:", name);//Character's race
-                Console.WriteLine("\tPress 1: Dwarf");
-                Console.WriteLine("\tPress 2: Elf");
-                Console.WriteLine("\tPress 3: Halfling");
-                Console.WriteLine("\tPress 4: Human");
-                Console.WriteLine("\tPress 5: Dragonborn");
-                Console.WriteLine("\tPress 6: Gnome");
-                Console.WriteLine("\tPress 7: Half-Elf");
-                Console.WriteLine("\tPress 8: Half-Orc");
-                Console.WriteLine("\tPress 9: Tiefling");
+                Console.WriteLine("\tPress 1: {0} is a Dwarf.", name);
+                Console.WriteLine("\tPress 2: {0} is an Elf.", name);
+                Console.WriteLine("\tPress 3: {0} is a Halfling.", name);
+                Console.WriteLine("\tPress 4: {0} is a Human.", name);
+                Console.WriteLine("\tPress 5: {0} is a Dragonborn.", name);
+                Console.WriteLine("\tPress 6: {0} is a Gnome.", name);
+                Console.WriteLine("\tPress 7: {0} is a Half-Elf.",name);
+                Console.WriteLine("\tPress 8: {0} is a Half-Orc.", name);
+                Console.WriteLine("\tPress 9: {0} is a Tiefling.", name);
 
                 selectedRace = Convert.ToInt32(Console.ReadLine());
             }
@@ -175,6 +180,33 @@ namespace CharacterSheetCreator
             wisdom = calcAbilityScore(wisdom);
             charisma = calcAbilityScore(charisma);
             
+            //Character's class
+            do
+            {
+                Console.WriteLine("What is {0}'s Class?:", name);
+                Console.WriteLine("\tPress 1: {0} is a Barbarian.", name);
+                Console.WriteLine("\tPress 2: {0} is a Bard.", name);
+                Console.WriteLine("\tPress 3: {0} is a Cleric.", name);
+                Console.WriteLine("\tPress 4: {0} is a Druid.", name);
+                Console.WriteLine("\tPress 5: {0} is a Fighter.", name);
+                Console.WriteLine("\tPress 6: {0} is a Monk.", name);
+                Console.WriteLine("\tPress 7: {0} is a Paladin.", name);
+                Console.WriteLine("\tPress 8: {0} is a Ranger.", name);
+                Console.WriteLine("\tPress 9: {0} is a Rogue.", name);
+                Console.WriteLine("\tPress 10: {0} is a Sorcerer.", name);
+                Console.WriteLine("\tPress 11: {0} is a Warlock.", name);
+                Console.WriteLine("\tPress 12: {0} is a Wizard.", name);
+
+                selectedClass = Convert.ToInt32(Console.ReadLine());
+
+                if ( (selectedClass != 1) && (selectedClass != 2) && (selectedClass != 3) && (selectedClass != 4) && (selectedClass != 5) && (selectedClass != 6) && (selectedClass != 7) && (selectedClass != 8) && (selectedClass != 9) && (selectedClass != 10) && (selectedClass != 11) && (selectedClass != 12) )
+                {
+                    Console.WriteLine("That is not a Dungeons & Dragons Class. Please select from the options provided!");
+                }
+            }
+            while( (selectedClass != 1) && (selectedClass != 2) && (selectedClass != 3) && (selectedClass != 4) && (selectedClass != 5) && (selectedClass != 6) && (selectedClass != 7) && (selectedClass != 8) && (selectedClass != 9) && (selectedClass != 10) && (selectedClass != 11) && (selectedClass != 12) );
+            
+
         }
 
         public static int calcAbilityScore(int ability)
