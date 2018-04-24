@@ -1,0 +1,91 @@
+Name: Lorem Ipsum	Age: 45 years old	Race: Dwarf
+Sub-Race: Hill_Dwarf	Class: Druid Lvl 1	Sex: Female	Size: Medium
+
+
+Max. HP: 8
+Strength:     0           Mod: -5
+Dexterity:    11           Mod: 0
+Constitution: 11           Mod: 0
+Intelligence: 10           Mod: 0
+Wisdom:       17           Mod: 3
+Charisma:     12           Mod: 1
+
+
+Lorem Ipsum knows Common and Dwarvish.
+
+Saving Throw Proficiencies:
+                                  Proficient:
+Strength Saving Throws                 False
+Dexterity Saving Throws                False
+Constitution Saving Throws             False
+Intelligence Saving Throws             True
+Wisdom Saving Throws                   True
+Charisma Saving Throws                 False
+
+Skill Proficiencies:
+                      Proficient:
+Acrobatics                 False
+Animal Handling            True
+Arcana                     False
+Athletics                  False
+Deception                  False
+History                    False
+Insight                    False
+Intimidation               False
+Investigation              False
+Medicine                   False
+Nature                     True
+Perception                 False
+Performance                False
+Persuasion                 False
+Religion                   False
+Sleight of Hand            False
+Stealth                    False
+Survival                   False
+
+Weapon Proficiencies:
+                      Proficient:
+Club                       True
+Dagger                     True
+Greatclub                  False
+Handaxe                    False
+Javelin                    True
+Light Hammer               False
+Mace                       True
+Quarterstaff               True
+Sickle                     True
+Spear                      True
+Light Crossbow             False
+Dart                       True
+Shortbow                   False
+Sling                      True
+Battleaxe                  False
+Flail                      False
+Glaive                     False
+Greataxe                   False
+Greatsword                 False
+Halberd                    False
+Lance                      False
+Longsword                  False
+Maul                       False
+Morningstar                False
+Pike                       False
+Rapier                     False
+Scimitar                   True
+Shortsword                 False
+Trident                    False
+War Pick                   False
+Warhammer                  False
+Whip                       False
+Blowgun                    False
+Hand Crossbow              False
+Heavy Crossbow             False
+Longbow                    False
+Net                        False
+
+Armour Proficiencies:
+                      Proficient:
+Light Armour               True
+Medium Armour              True
+Heavy Armour               False
+Shields                    True

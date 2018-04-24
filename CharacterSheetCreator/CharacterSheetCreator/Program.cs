@@ -106,6 +106,7 @@ namespace CharacterSheetCreator
                                     Console.WriteLine(info);//Display the contents of the character file
                                 }
                             }
+                            Console.WriteLine();//Add a bit of spacing to make it look nicer
                         }
                     }
                     else if(DnDCharacter.getNumOfCharacters() == 0)
