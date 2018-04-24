@@ -69,6 +69,10 @@ namespace CharacterSheetCreator
             //List for storing the characters
             List<DnDCharacter> characterList = new List<DnDCharacter>();
 
+            //Get the files previously created in earlier runs
+            string[] characterFiles = Directory.GetFiles("CharacterStorage", "*.txt");
+            string info = "";
+
             Console.WriteLine("Welcome to my Dungeons & Dragons Character Sheet Creation tool!");
 
             do
@@ -89,11 +93,19 @@ namespace CharacterSheetCreator
                 }
                 else if(answer == 2)
                 {
+                    DnDCharacter.numOfCharacters = characterFiles.Length;
+
                     if(DnDCharacter.getNumOfCharacters() > 0)
                     {
-                        foreach(DnDCharacter character in characterList)
+                        foreach(string cFile in characterFiles)
                         {
-                            Console.WriteLine("Name: ");
+                            using (StreamReader sr = new StreamReader(cFile))
+                            {
+                                while ((info = sr.ReadLine()) != null)
+                                {
+                                    Console.WriteLine(info);//Display the contents of the character file
+                                }
+                            }
                         }
                     }
                     else if(DnDCharacter.getNumOfCharacters() == 0)
@@ -143,12 +155,12 @@ namespace CharacterSheetCreator
 
                     sw.WriteLine("\nMax. HP: " + c.hpMax);
                     //Ability scores and modifiers
-                    sw.WriteLine("Strength:     " + c.str + "\tMod: " + c.strMod);
-                    sw.WriteLine("Dexterity:    " + c.dex + "\tMod: " + c.dexMod);
-                    sw.WriteLine("Constitution: " + c.con + "\tMod: " + c.conMod);
-                    sw.WriteLine("Intelligence: " + c.inte + "\tMod: " + c.inteMod);
-                    sw.WriteLine("Wisdom:       " + c.wis + "\tMod: " + c.wisMod);
-                    sw.WriteLine("Charisma:     " + c.cha + "\tMod: " + c.chaMod);
+                    sw.WriteLine("Strength:     " + c.str + "           Mod: " + c.strMod);
+                    sw.WriteLine("Dexterity:    " + c.dex + "           Mod: " + c.dexMod);
+                    sw.WriteLine("Constitution: " + c.con + "           Mod: " + c.conMod);
+                    sw.WriteLine("Intelligence: " + c.inte + "           Mod: " + c.inteMod);
+                    sw.WriteLine("Wisdom:       " + c.wis + "           Mod: " + c.wisMod);
+                    sw.WriteLine("Charisma:     " + c.cha + "           Mod: " + c.chaMod);
 
                     sw.WriteLine();
 
@@ -254,6 +266,9 @@ namespace CharacterSheetCreator
             //New Character
             DnDCharacter newCharacter;
 
+            //Variable for making ability scores random
+            Random rand = new Random();
+
             //Character Info:
             string name = "";
             int age = 0;
@@ -316,12 +331,12 @@ namespace CharacterSheetCreator
             }
             while( (selectedRace != 1) && (selectedRace != 2) && (selectedRace != 3) && (selectedRace != 4) && (selectedRace != 5) && (selectedRace != 6) && (selectedRace != 7) && (selectedRace != 8) && (selectedRace != 9) );
 
-            strength = calcAbilityScore(strength);
-            dexterity = calcAbilityScore(dexterity);
-            constitution = calcAbilityScore(constitution);
-            intelligence = calcAbilityScore(intelligence);
-            wisdom = calcAbilityScore(wisdom);
-            charisma = calcAbilityScore(charisma);
+            strength = calcAbilityScore(rand, strength);
+            dexterity = calcAbilityScore(rand, dexterity);
+            constitution = calcAbilityScore(rand, constitution);
+            intelligence = calcAbilityScore(rand, intelligence);
+            wisdom = calcAbilityScore(rand, wisdom);
+            charisma = calcAbilityScore(rand, charisma);
             
             //Character's class
             do
@@ -425,14 +440,14 @@ namespace CharacterSheetCreator
             
         }
 
-        public static int calcAbilityScore(int ability)
+        public static int calcAbilityScore(Random rand, int ability)
         {
             //Four rolls of a 6-sided dice
             int roll1 = 0;
             int roll2 = 0;
             int roll3 = 0;
             int roll4 = 0;
-            Random rand = new Random();
+            
 
             roll1 = rand.Next(1, 7);
             roll2 = rand.Next(1, 7);

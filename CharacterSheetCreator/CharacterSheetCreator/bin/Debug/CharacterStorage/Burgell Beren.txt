@@ -1,32 +1,32 @@
-Name: Adrick Hornraven	Age: 19 years old	Race: Human
-Sub-Race: NA	Class: Warlock Lvl 1	Sex: Male	Size: Medium
+Name: Burgell Beren	Age: 30 years old	Race: Gnome
+Sub-Race: Forest_Gnome	Class: Rogue Lvl 1	Sex: Male	Size: Small
 
 
 Max. HP: 7
-Strength:     11           Mod: 0
-Dexterity:    13           Mod: 1
+Strength:     5           Mod: -3
+Dexterity:    17           Mod: 3
 Constitution: 9           Mod: -1
-Intelligence: 8           Mod: -1
-Wisdom:       1           Mod: -5
-Charisma:     16           Mod: 3
+Intelligence: 17           Mod: 3
+Wisdom:       7           Mod: -2
+Charisma:     14           Mod: 2
 
 
-Adrick Hornraven knows Common and one other of your choice.
+Burgell Beren knows Common and Gnomish.
 
 Saving Throw Proficiencies:
                                   Proficient:
 Strength Saving Throws                 False
-Dexterity Saving Throws                False
+Dexterity Saving Throws                True
 Constitution Saving Throws             False
-Intelligence Saving Throws             False
-Wisdom Saving Throws                   True
-Charisma Saving Throws                 True
+Intelligence Saving Throws             True
+Wisdom Saving Throws                   False
+Charisma Saving Throws                 False
 
 Skill Proficiencies:
                       Proficient:
-Acrobatics                 False
+Acrobatics                 True
 Animal Handling            False
-Arcana                     True
+Arcana                     False
 Athletics                  False
 Deception                  False
 History                    False
@@ -39,8 +39,8 @@ Perception                 False
 Performance                False
 Persuasion                 False
 Religion                   False
-Sleight of Hand            False
-Stealth                    False
+Sleight of Hand            True
+Stealth                    True
 Survival                   False
 
 Weapon Proficiencies:
@@ -66,19 +66,19 @@ Greataxe                   False
 Greatsword                 False
 Halberd                    False
 Lance                      False
-Longsword                  False
+Longsword                  True
 Maul                       False
 Morningstar                False
 Pike                       False
-Rapier                     False
+Rapier                     True
 Scimitar                   False
-Shortsword                 False
+Shortsword                 True
 Trident                    False
 War Pick                   False
 Warhammer                  False
 Whip                       False
 Blowgun                    False
-Hand Crossbow              False
+Hand Crossbow              True
 Heavy Crossbow             False
 Longbow                    False
 Net                        False

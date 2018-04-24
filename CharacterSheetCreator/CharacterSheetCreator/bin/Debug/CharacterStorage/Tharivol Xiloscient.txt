@@ -1,25 +1,25 @@
-Name: Adrick Hornraven	Age: 19 years old	Race: Human
-Sub-Race: NA	Class: Warlock Lvl 1	Sex: Male	Size: Medium
+Name: Tharivol Xiloscient	Age: 104 years old	Race: Elf
+Sub-Race: Dark_Elf	Class: Sorcerer Lvl 1	Sex: Male	Size: Medium
 
 
 Max. HP: 7
-Strength:     11           Mod: 0
-Dexterity:    13           Mod: 1
-Constitution: 9           Mod: -1
-Intelligence: 8           Mod: -1
-Wisdom:       1           Mod: -5
-Charisma:     16           Mod: 3
+Strength:     16           Mod: 3
+Dexterity:    16           Mod: 3
+Constitution: 13           Mod: 1
+Intelligence: 16           Mod: 3
+Wisdom:       11           Mod: 0
+Charisma:     13           Mod: 1
 
 
-Adrick Hornraven knows Common and one other of your choice.
+Tharivol Xiloscient knows Common and Elvish.
 
 Saving Throw Proficiencies:
                                   Proficient:
 Strength Saving Throws                 False
 Dexterity Saving Throws                False
-Constitution Saving Throws             False
+Constitution Saving Throws             True
 Intelligence Saving Throws             False
-Wisdom Saving Throws                   True
+Wisdom Saving Throws                   False
 Charisma Saving Throws                 True
 
 Skill Proficiencies:
@@ -32,13 +32,13 @@ Deception                  False
 History                    False
 Insight                    False
 Intimidation               False
-Investigation              True
+Investigation              False
 Medicine                   False
 Nature                     False
-Perception                 False
+Perception                 True
 Performance                False
 Persuasion                 False
-Religion                   False
+Religion                   True
 Sleight of Hand            False
 Stealth                    False
 Survival                   False
@@ -46,19 +46,19 @@ Survival                   False
 Weapon Proficiencies:
                       Proficient:
 Club                       False
-Dagger                     False
+Dagger                     True
 Greatclub                  False
 Handaxe                    False
 Javelin                    False
 Light Hammer               False
 Mace                       False
-Quarterstaff               False
+Quarterstaff               True
 Sickle                     False
 Spear                      False
-Light Crossbow             False
-Dart                       False
+Light Crossbow             True
+Dart                       True
 Shortbow                   False
-Sling                      False
+Sling                      True
 Battleaxe                  False
 Flail                      False
 Glaive                     False
@@ -70,22 +70,22 @@ Longsword                  False
 Maul                       False
 Morningstar                False
 Pike                       False
-Rapier                     False
+Rapier                     True
 Scimitar                   False
-Shortsword                 False
+Shortsword                 True
 Trident                    False
 War Pick                   False
 Warhammer                  False
 Whip                       False
 Blowgun                    False
-Hand Crossbow              False
+Hand Crossbow              True
 Heavy Crossbow             False
 Longbow                    False
 Net                        False
 
 Armour Proficiencies:
                       Proficient:
-Light Armour               True
+Light Armour               False
 Medium Armour              False
 Heavy Armour               False
 Shields                    False

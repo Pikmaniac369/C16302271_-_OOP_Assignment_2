@@ -1,17 +1,17 @@
-Name: Adrick Hornraven	Age: 19 years old	Race: Human
+Name: Geth Windrivver	Age: 21 years old	Race: Half_Elf
 Sub-Race: NA	Class: Warlock Lvl 1	Sex: Male	Size: Medium
 
 
-Max. HP: 7
-Strength:     11           Mod: 0
-Dexterity:    13           Mod: 1
-Constitution: 9           Mod: -1
-Intelligence: 8           Mod: -1
-Wisdom:       1           Mod: -5
-Charisma:     16           Mod: 3
+Max. HP: 9
+Strength:     8           Mod: -1
+Dexterity:    15           Mod: 2
+Constitution: 12           Mod: 1
+Intelligence: 13           Mod: 1
+Wisdom:       13           Mod: 1
+Charisma:     15           Mod: 2
 
 
-Adrick Hornraven knows Common and one other of your choice.
+Geth Windrivver knows Common, Elvish and one language of your choice.
 
 Saving Throw Proficiencies:
                                   Proficient:
