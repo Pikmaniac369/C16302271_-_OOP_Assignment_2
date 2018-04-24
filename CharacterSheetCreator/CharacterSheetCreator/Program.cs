@@ -63,7 +63,10 @@ namespace CharacterSheetCreator
 
         private static void displayMenu()
         {
+            //Variable to record user's menu selection
             int answer = 0;
+            //List for storing the characters
+            List<DnDCharacter> characterList = new List<DnDCharacter>();
 
             Console.WriteLine("Welcome to my Dungeons & Dragons Character Sheet Creation tool!");
 
@@ -71,7 +74,7 @@ namespace CharacterSheetCreator
             {
                 Console.WriteLine("What would you like to do?\n");
                 Console.WriteLine("\tPress 1: Create a new character.");
-                Console.WriteLine("\tPress 2: View the list of characters that already exist.");
+                Console.WriteLine("\tPress 2: View the list of characters that already exist.");//Or created this session
                 Console.WriteLine("\tPress 3: Close the application.");
 
                 answer = Convert.ToInt32(Console.ReadLine());
@@ -79,15 +82,24 @@ namespace CharacterSheetCreator
                 if(answer == 1)
                 {
                     Console.WriteLine("\nOkay then! Let's make a new character!");
-                    createCharacter();
+                    createCharacter(characterList);
+                    answer = 0;//Reser the value of answer to 0 so the main menu reappears
                 }
                 else if(answer == 2)
                 {
-                    if(DnDCharacter.getNumOfCharacters() == 0)
+                    if(DnDCharacter.getNumOfCharacters() > 0)
+                    {
+                        foreach(DnDCharacter character in characterList)
+                        {
+                            Console.WriteLine("Name: ");
+                        }
+                    }
+                    else if(DnDCharacter.getNumOfCharacters() == 0)
                     {
                         Console.WriteLine("\nThere are currently no characters created!");
-                        answer = 0;
                     }
+
+                    answer = 0;//Reset the value of answer to 0 so the main menu reappears
                 }
                 else if(answer == 3)
                 {
@@ -106,7 +118,12 @@ namespace CharacterSheetCreator
             while ( (answer != 1) && (answer != 2) && (answer != 3) );
         }
 
-        private static void createCharacter()
+        private static void writeToFile()
+        {
+
+        }
+
+        private static void createCharacter(List<DnDCharacter> characterList)
         {
             //New Character
             DnDCharacter newCharacter;
@@ -199,14 +216,87 @@ namespace CharacterSheetCreator
 
                 selectedClass = Convert.ToInt32(Console.ReadLine());
 
-                if ( (selectedClass != 1) && (selectedClass != 2) && (selectedClass != 3) && (selectedClass != 4) && (selectedClass != 5) && (selectedClass != 6) && (selectedClass != 7) && (selectedClass != 8) && (selectedClass != 9) && (selectedClass != 10) && (selectedClass != 11) && (selectedClass != 12) )
+                if(selectedClass == 1)
                 {
+                    //Make the new character a Barbarian
+                    newCharacter = new Barbarian(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 2)
+                {
+                    //Make the new character a Bard
+                    newCharacter = new Bard(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 3)
+                {
+                    //Make the new character a Cleric
+                    newCharacter = new Cleric(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 4)
+                {
+                    //Make the new character a Druid
+                    newCharacter = new Druid(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 5)
+                {
+                    //Make the new character a Fighter
+                    newCharacter = new Fighter(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 6)
+                {
+                    //Make the new character a Monk
+                    newCharacter = new Monk(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 7)
+                {
+                    //Make the new character a Paladin
+                    newCharacter = new Paladin(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 8)
+                {
+                    //Make the new character a Ranger
+                    newCharacter = new Ranger(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 9)
+                {
+                    //Make the new character a Rogue
+                    newCharacter = new Rogue(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 10)
+                {
+                    //Make the new character a Sorcerer
+                    newCharacter = new Sorcerer(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 11)
+                {
+                    //Make the new character a Warlock
+                    newCharacter = new Warlock(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if(selectedClass == 12)
+                {
+                    //Make the new character a Wizard
+                    newCharacter = new Wizard(name, age, morf, selectedRace, strength, dexterity, constitution, intelligence, wisdom, charisma);
+                    characterList.Add(newCharacter);
+                }
+                else if( (selectedClass != 1) && (selectedClass != 2) && (selectedClass != 3) && (selectedClass != 4) && (selectedClass != 5) && (selectedClass != 6) && (selectedClass != 7) && (selectedClass != 8) && (selectedClass != 9) && (selectedClass != 10) && (selectedClass != 11) && (selectedClass != 12) )
+                {
+                    //Inform the user of incorrect input
                     Console.WriteLine("That is not a Dungeons & Dragons Class. Please select from the options provided!");
                 }
             }
             while( (selectedClass != 1) && (selectedClass != 2) && (selectedClass != 3) && (selectedClass != 4) && (selectedClass != 5) && (selectedClass != 6) && (selectedClass != 7) && (selectedClass != 8) && (selectedClass != 9) && (selectedClass != 10) && (selectedClass != 11) && (selectedClass != 12) );
-            
 
+            
         }
 
         public static int calcAbilityScore(int ability)
